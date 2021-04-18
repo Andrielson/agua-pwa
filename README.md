@@ -76,7 +76,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[RxJS](https://rxjs-dev.firebaseapp.com)**
 -   **[TypeScript](https://www.typescriptlang.org)**
 
-> Veja o arquivo  [package.json](https://github.com/andrielson/blocok/blob/master/package.json)
+> Veja o arquivo  [package.json](https://github.com/andrielson/agua-pwa/blob/main/package.json)
 
 **Utilitários**
 -   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
