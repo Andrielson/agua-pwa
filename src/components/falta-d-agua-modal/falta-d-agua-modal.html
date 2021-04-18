@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Falta d'água
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item text-wrap *ngIf="resposta.des_titulo">
+      <p class="labeldocampo">Título:</p>
+      <p>{{resposta.des_titulo}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Mensagem:</p>
+      <p>{{resposta.des_mensagem}}</p>
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="resposta.des_periodo">
+      <p class="labeldocampo">Período:</p>
+      <p>{{resposta.des_periodo}}</p>
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="resposta.cod_mensagem_mural">
+      <p class="labeldocampo">Código do mural:</p>
+      <p>{{resposta.cod_mensagem_mural}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Código do consumidor:</p>
+      <p>{{resposta.cod_consumidor}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Nome do consumidor:</p>
+      <p>{{resposta.nom_pfj}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Endereço:</p>
+      <p>{{resposta.des_endereco}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Bairro:</p>
+      <p>{{resposta.nom_bairro}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Reservatório:</p>
+      <p>{{resposta.des_reservatorio}}</p>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

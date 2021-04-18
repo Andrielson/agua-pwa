@@ -1,0 +1,17 @@
+{
+  "name": "Água Rio Preto",
+  "short_name": "AguaRP",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/ic_launcher_square_azul_512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#4e8ef7",
+  "theme_color": "#4e8ef7",
+  "lang": "pt",
+  "dir": "ltr",
+  "description": "Água São José do Rio Preto/SP",
+  "orientation": "portrait"
+}

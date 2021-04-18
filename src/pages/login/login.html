@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Entrar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item (click)="entrarComContaGoogle()"><ion-icon name="logo-google" item-start></ion-icon>Google</button>
+    <button ion-item><ion-icon name="mail" item-start></ion-icon>E-mail/senha</button>
+    <button ion-item><ion-icon name="text" item-start></ion-icon>SMS</button>
+  </ion-list>
+  <button ion-button primary (click)="onClickLogin()">Validar</button>
+  <button ion-button secundary (click)="onClickIgnorar()">Usar sem logar</button>
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>2ª via</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label floating>Número do cadastro</ion-label>
+        <!-- input do tipo "number" não aceita maxlength. Usar tipo "tel" é um workaround. -->
+        <ion-input formControlName="nroCadastro" type="tel" maxlength="7" (input)="validaInputCadastro()"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!ehCadastroValido()">
+        <p class="invalido">Número do cadastro inválido!</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Referência</ion-label>
+        <ion-datetime formControlName="referencia" displayFormat="MM/YYYY" pickerFormat="MM YYYY" cancelText="Cancelar" doneText="Pronto"></ion-datetime>
+      </ion-item>
+      <ion-item *ngIf="!ehCadastroValido()">
+        <p class="invalido">Referência inválida!</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Tipo de fatura</ion-label>
+        <ion-select formControlName="tipoFatura" cancelText="Cancelar" okText="Pronto">
+          <ion-option value="1">Água e esgoto</ion-option>
+          <ion-option value="3">Parcelamento</ion-option>
+          <ion-option value="4">Parcelamento jurídico</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Digite os caracteres da imagem abaixo</ion-label>
+        <ion-input formControlName="captcha" type="text" maxlength="5" (input)="validaInputCaptcha()"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!ehCaptchaValido()">
+        <p class="invalido">Caracteres inválidos!</p>
+      </ion-item>
+      <ion-item *ngIf="mensagemErro" margin-top margin-bottom text-wrap>
+        <p style="color: red; font-weight: bold !important">{{mensagemErro}}</p>
+      </ion-item>
+      <ion-item>
+        <img *ngIf="urlCaptcha" src="{{urlCaptcha}}" />
+        <ion-icon name="refresh-circle" item-end (click)="atualizaImagemCaptcha()"></ion-icon>
+      </ion-item>
+      <ion-item text-center>
+        <button ion-button primary type="submit" margin-top [disabled]="!form.valid">Consultar</button>
+      </ion-item>
+    </form>
+    <ion-item text-center *ngIf="resposta">
+      <button ion-button clear (click)="exibeResposta()">Visualizar informações</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

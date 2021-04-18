@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Serviços</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-top>
+  <ion-list text-wrap no-lines>
+    <button ion-item *ngFor="let item of servicos" (click)="servicoClick($event,item)">
+      <ion-icon [name]="item.icone" item-start></ion-icon>{{item.titulo}}
+    </button>
+  </ion-list>
+
+</ion-content>

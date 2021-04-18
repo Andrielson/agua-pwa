@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Segunda via de conta
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item text-wrap>
+      <p class="labeldocampo">Número do cadastro:</p>
+      <p>{{resposta.cadastro}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Referência:</p>
+      <p>{{resposta.referencia}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Valor:</p>
+      <p>{{resposta.valor | currency:'BRL':true}}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <p class="labeldocampo">Data de vencimento:</p>
+      <p [ngClass]="resposta.atrasada ? 'atrasada':'emdia'">{{resposta.vencimento}}</p>
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="resposta.codigo">
+      <p class="labeldocampo">Código de barras:</p>
+      <p style="user-select: text !important">{{resposta.codigo}}</p>
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="resposta.pagamento">
+      <p class="labeldocampo">Data do pagamento:</p>
+      <p>{{resposta.pagamento}}</p>
+    </ion-item>
+
+    <ion-item margin-top color="secondary" text-center text-wrap *ngIf="resposta.pagamento">
+      <span style="font-weight: bold !important">CONTA PAGA</span>
+      <ion-icon margin-left name="checkmark-circle"></ion-icon>
+    </ion-item>
+
+    <ion-item margin-top color="danger" text-center text-wrap *ngIf="resposta.atrasada">
+      <span style="font-weight: bold !important">CONTA EM ATRASO</span>
+      <ion-icon margin-left name="warning"></ion-icon>
+    </ion-item>
+
+    <ion-item text-wrap text-center>
+      <button ion-button clear (click)="visualizarConta()">Visualizar conta</button>
+      <!-- Ignorar a reclamação do Visual Studio Code sobre o [cbContent] -->
+      <button *ngIf="resposta.codigo" ion-button clear margin-left ngxClipboard [cbContent]="resposta.codigo" (cbOnSuccess)="exibeToastCodigo()">Copiar código</button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

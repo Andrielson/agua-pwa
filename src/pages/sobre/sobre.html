@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sobre</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header color="primary">
+      ÁGua
+    </ion-card-header>
+    <ion-card-content>
+      <p>O órgão é responsável pelo serviço de abastecimento de água (captação, adução, tratamento, reserva e distribuição
+        de água potável) e coleta, afastamento e tratamento dos esgotos domésticos do município de São José do Rio Preto
+        e distritos de Talhado e Engenheiro Schmitt.</p>
+    </ion-card-content>
+    <ion-list>
+      <a target="_blank" href="http://www.semae.riopreto.sp.gov.br" ion-item>
+        <ion-icon name="logo-wordpress" item-start></ion-icon>
+        Site
+      </a>
+      <a target="_blank" href="https://www.facebook.com/SeMae.RioPreto" ion-item>
+        <ion-icon name="logo-facebook" color="facebook" item-start></ion-icon>
+        Facebook
+      </a>
+      <a target="_blank" href="https://twitter.com/#!/SeMAE_RIOPRETO" ion-item>
+        <ion-icon name="logo-twitter" color="twitter" item-start></ion-icon>
+        Twitter
+      </a>
+      <a target="_blank" href="https://www.youtube.com/channel/UC3OiHkExlANnOXjcZFoIVmw" ion-item>
+        <ion-icon name="logo-youtube" color="youtube" item-start></ion-icon>
+        Youtube
+      </a>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-card-header color="primary">
+      Unidades
+    </ion-card-header>
+    <ion-list>
+      <button ion-item *ngFor="let un of unidades" (click)="onClick($event,un)">
+        {{un.titulo}}
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Atendimento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header color="primary">
+      Atendimento presencial
+    </ion-card-header>
+    <ion-list>
+      <button ion-item *ngFor="let at of atendsPresencial" (click)="onClick($event,at)">
+        <ion-icon *ngIf="at.icone" [name]="at.icone" item-start></ion-icon>
+        {{at.titulo}}
+      </button>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="primary">
+      Atendimento virtual
+    </ion-card-header>
+    <ion-list>
+      <button ion-item *ngFor="let at of atendsVirtual" (click)="onClick($event,at)">
+        <ion-icon *ngIf="at.icone" [name]="at.icone" [color]="at.cor" item-start></ion-icon>
+        {{at.titulo}}
+      </button>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

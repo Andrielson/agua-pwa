@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Certidão negativa de débitos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label floating>Número do cadastro</ion-label>
+        <!-- input do tipo "number" não aceita maxlength. Usar tipo "tel" é um workaround. -->
+        <ion-input formControlName="nroCadastro" type="tel" maxlength="7" (input)="validaInputCadastro()"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!ehCadastroValido()">
+        <p class="invalido">Número do cadastro inválido!</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Número do hidrômetro</ion-label>
+        <ion-input formControlName="nroHidrometro" type="text" maxlength="20" (input)="validaInputHidrometro()"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!ehHidrometroValido()">
+        <p class="invalido">Número do hidrômetro inválido!</p>
+      </ion-item>
+      <ion-item text-center>
+        <button ion-button primary type="submit" margin-top [disabled]="!form.valid">Consultar</button>
+      </ion-item>
+    </form>
+    <!-- <ion-item text-center *ngIf="resposta">
+      <button ion-button clear (click)="exibeResposta()">Visualizar informações</button>
+    </ion-item> -->
+  </ion-list>
+</ion-content>

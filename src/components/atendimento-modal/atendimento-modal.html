@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{atv.titulo}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      {{atv.titulo}}
+    </ion-card-header>
+    <ion-list>
+      <ion-item text-wrap>{{atv.url}}</ion-item>
+      <ion-item text-wrap *ngIf="atv.horario">{{atv.horario}}</ion-item>
+      <a *ngIf="atv.url2; else templatElse" ion-button outline small href="{{atv.url2}}" target="_blank">
+        {{atv.textoAcaoPrincipal}}
+        <ion-icon name="open" margin-left float-right></ion-icon>
+      </a>
+      <ng-template #templatElse>
+        <button ion-item>{{atv.textoAcaoPrincipal}}</button>
+      </ng-template>
+      <button ion-item *ngIf="atv.textoAcaoSecundaria">{{atv.textoAcaoSecundaria}}</button>
+    </ion-list>
+  </ion-card>
+</ion-content>
