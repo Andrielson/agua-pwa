@@ -59,10 +59,10 @@ $ git clone https://github.com/andrielson/agua-pwa.git
 $ cd agua-pwa
 
 # Instale as dependências
-$ npm install
+$ yarn install
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm run ionic:serve
+$ yarn run ionic:serve
 ```
 
 ## 🛠 Tecnologias
